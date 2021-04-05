@@ -1,3 +1,17 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+}
+
 /*################################# Cover Pincipale  #################################*/
 h1 {
   font-family: Merienda one, sans-serif;
@@ -27,7 +41,7 @@ img.cover-profile {
 }
 
 .droit {
-  background: #6C829D;
+  background: white;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -42,3 +56,12 @@ img.cover-profile {
           clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
 }
 
+
+.dropdown-menu.show {
+	display: block;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 28px;
+}
