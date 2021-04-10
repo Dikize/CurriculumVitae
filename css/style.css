@@ -63,5 +63,7 @@ img.cover-profile {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  gap: 28px;
+}
+.dropdown-menu.show button {
+  margin: 20px 0;
 }
