@@ -1,0 +1,29 @@
+.button3D {
+    width: 80%;
+    height: 65px;
+    font-size: x-large;
+    margin: 45px auto 0;
+    border-radius: 40px;
+    border: 0px solid #FF79DA;
+    box-shadow: 4px 8px 16px white;
+    color: white;
+    background: linear-gradient(172deg, #FF79DA 1%, #9356DC 90%);
+    cursor: pointer;
+    outline: none;
+    border-bottom:  5px solid #FF79DA;
+    transition: all 0.1s;
+    float: left;
+
+    &:active {
+        transform: translate(0,5px);
+        border-bottom: 1px solid;
+    }
+
+    p {
+        font-size: larger;
+    }
+
+    &:hover {
+        animation: shadow 0.4s linear both;
+    }
+}
