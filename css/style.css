@@ -60,7 +60,7 @@ img.cover-profile {
   margin: 10px 0;
 }
 
-@media (min-width: 1024px) and (max-width: 1425px){
+@media (min-width: 1024px) and (max-width: 1525px){
   .gauche {
     width: 315px;
   }
