@@ -68,8 +68,8 @@ img.cover-profile {
     width: 705px;
   }
 }
-@media (min-width: 1425px) {
+/* @media (min-width: 1425px) {
   .gauche {
       width: 410px;
   }
-}
+} */
