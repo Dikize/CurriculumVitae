@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation P</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito+Sans&display=swap" rel="stylesheet">
+
+    <style>
+        h1,
+        h2 {
+            font-family: 'Merienda One', sans-serif;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none
+        }
+
+        .modal-content {
+            width: 166%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="container-fluid">
+        <div class="row">
+
+            <div class="col-12">
+                <h1 class="text-center p-4">Construire le back-end d'un site Pe</h1>
+
+                <div class="mx-5 d-flex justify-content-center flex-column">
+                    <h2 class="h1 text-center my-5"><ins>Compte-rendu mission</ins></h2>
+                    <p class="lead fs-4">L’application web est composée de 4 pages :</p>
+                    <ul class="lead fs-4">
+                        <li>Une page “accueil” sous forme de liste carte, montrant tous les articles disponibles à la
+                            vente.</li>
+                        <li>Une page “produit”, qui affiche de manière dynamique l'élément sélectionné par l'utilisateur
+                            et lui permet de personnaliser le produit et de l'ajouter à son panier.</li>
+                        <li>Une page “panier” contenant un résumé des produits dans le panier, le prix total et un
+                            formulaire permettant de passer une commande.</li>
+                        <li>Une page “confirmation” de commande, remerciant l'utilisateur pour sa commande, et indiquant
+                            le prix total et l'identifiant de commande envoyé par le serveur.</li>
+                    </ul>
+                </div>
+
+                <h2 class="h1 text-center mt-5" id="analyse"><ins>Rapport</ins></h2>
+
+                <!-- server -->
+                <h2 class="h1 text-center mt-5" id="analyse"><ins>server.js</ins></h2>
+
+                <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-dependenceServer-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-dependenceServer" type="button" role="tab"
+                            aria-controls="pills-dependenceServer" aria-selected="true">Dépendences</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-controllerServer-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-controllerServer" type="button" role="tab"
+                            aria-controls="pills-controllerServer" aria-selected="false">Controller</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <!-- Dépendence -->
+                    <div class="tab-pane fade show active" id="pills-dependenceServer" role="tabpanel"
+                        aria-labelledby="pills-dependenceServer-tab">
+
+                        <h2 class="text-center">Dépendences</h2>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">Module</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>http</p>
+                                    </td>
+                                    <td>
+                                        <p>Le package <code>http</code> natif de <code>Node</code> est utilisé pour
+                                            créer un
+                                            serveur</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>nodemon</p>
+                                    </td>
+                                    <td>
+                                        <p>Il surveille les modifications des fichiers et redémarrera le serveur
+                                            lorsqu'il aura besoin d'être mis à jour. Cela garantit d'avoir toujours la
+                                            dernière version du serveur dès que nous sauvegardons, sans devoir relancer
+                                            manuellement le serveur !</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--  -->
+                    <div class="tab-pane fade" id="pills-controllerServer" role="tabpanel"
+                        aria-labelledby="pills-controllerServer-tab">
+                        <h2 class="text-center">Controller<br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">middleware</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p><code>http</code></p>
+                                    </td>
+                                    <td>
+                                        <p>Le package <code>http</code> natif de <code>Node</code> est utilisé pour
+                                            créer un
+                                            serveur, en passant le fichier app.js qui sera exécutée à chaque appel
+                                            effectué
+                                            vers ce serveur.</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>normalizePort</p>
+                                    </td>
+                                    <td>
+                                        <p>la fonction <code>normalizePort</code> renvoie un port valide, qu'il soit
+                                            fourni
+                                            sous la forme d'un numéro ou d'une chaîne ;</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>errorHandler</p>
+                                    </td>
+                                    <td>
+                                        <p>la fonction <code>errorHandler</code> recherche les différentes erreurs et
+                                            les
+                                            gère de manière appropriée. Elle est ensuite enregistrée dans le serveur ;
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>server.on</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>server.on</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p><code>server.listen(port);</code></p>
+                                    </td>
+                                    <td>
+                                        <p>un écouteur d'évènements est enregistré, consignant le port ou le canal nommé
+                                            sur
+                                            lequel le serveur s'exécute dans la console.</p>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div><!-- fin -->
+
+                </div> <!-- Fin server -->
+
+                <!-- App -->
+                <h2 class="h1 text-center mt-5" id="analyse"><ins>app.js</ins></h2>
+
+                <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-dependenceApp-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-dependenceApp" type="button" role="tab"
+                            aria-controls="pills-dependenceApp" aria-selected="true">Dépendences</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-controllerApp-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-controllerApp" type="button" role="tab"
+                            aria-controls="pills-controllerApp" aria-selected="false">Controller</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+
+                    <!-- Dépendence -->
+                    <div class="tab-pane fade show active" id="pills-dependenceApp" role="tabpanel"
+                        aria-labelledby="pills-dependenceApp-tab">
+                        <h2 class="text-center">Dépendences</h2>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">Module</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>express</p>
+                                    </td>
+                                    <td>
+                                        <p>Express est un framework reposant sur Node qui facilite la création et la
+                                            gestion des serveurs Node.</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>path</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>mongoose</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>helmet</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>dotenv</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Fichier -->
+                    <div class="tab-pane fade" id="pills-controllerApp" role="tabpanel"
+                        aria-labelledby="pills-controllerApp-tab">
+                        <h2 class="text-center">Controller<br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#app">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="app" tabindex="-1" aria-labelledby="appLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="appLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="app.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+
+                        <h2 class="text-center">mongoose.connect</h2>
+                        <ul class="lead fs-4">
+                            <li></li>
+                        </ul>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">Module</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <h1>Définition de headers</h1>
+                                        <p>Il s'agit d'un système de sécurité qui, par défaut, bloque les appels HTTP
+                                            d'être
+                                            effectués entre des serveurs différents, ce qui empêche donc les requêtes
+                                            malveillantes d'accéder à des ressources sensibles. Dans notre cas, nous
+                                            avons
+                                            deux origines : <code>localhost:3000</code> et <code>localhost:4200</code>,
+                                            et
+                                            pour qu'elles puissent communiquer entre elles. Il faudra ajouter des
+                                            headers à l'objet <code>response</code>.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>res.setHeader</p>
+                                    </td>
+                                    <td>
+                                        <ol>
+                                            <li>accéder à notre API depuis n'importe quelle origine (<code>'*'</code>);
+                                            </li>
+                                            <li>ajouter les headers mentionnés aux requêtes envoyées vers notre API
+                                                (<code>Origin</code> , <code>X-Requested-With</code>, etc.) ;</li>
+                                            <li>envoyer des requêtes avec les méthodes mentionnées ( <code>GET</code>
+                                                ,<code>POST</code> , <code>POST</code>...).</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- fin fichier -->
+
+                </div> <!-- Fin app -->
+
+                <!-- user -->
+                <h2 class="h1 text-center mt-5" id="analyse"><ins>user.js</ins></h2>
+
+                <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-dependenceUser-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-dependenceUser" type="button" role="tab"
+                            aria-controls="pills-dependenceUser" aria-selected="true">Dépendences</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-shemaUser-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-shemaUser" type="button" role="tab" aria-controls="pills-shemaUser"
+                            aria-selected="false">Shéma</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-routeUser-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-routeUser" type="button" role="tab" aria-controls="pills-routeUser"
+                            aria-selected="false">Route</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-controllerUser-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-controllerUser" type="button" role="tab"
+                            aria-controls="pills-controllerUser" aria-selected="false">Controller</button>
+                    </li>
+                </ul>
+                <div class="tab-content my-5" id="pills-tabContent">
+                    <!-- Dépendence -->
+                    <div class="tab-pane fade show active" id="pills-dependenceUser" role="tabpanel"
+                        aria-labelledby="pills-dependenceUser-tab">
+                        <h2 class="text-center">Dépendences</h2>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">Module</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>bcrypt</p>
+                                    </td>
+                                    <td>
+                                        <p>la fonction de hachage <code>bcrypt</code> dans notre mot de passe va «
+                                            saler » le mot de passe 10 fois. Plus la valeur est élevée, plus l'exécution
+                                            de
+                                            la fonction sera longue, et plus le hachage sera sécurisé.</p>
+                                        <p>fonction asynchrone qui renvoie une Promise dans laquelle nous recevons le
+                                            hash
+                                            généré ;</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>mongoose</p>
+                                    </td>
+                                    <td>
+                                        <p>Mongoose pour gérer notre base de données MongoDB, implémenter des
+                                            schémas de données stricts, qui permettent de rendre notre application plus
+                                            robuste.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>mongoose-unique-validator</p>
+                                    </td>
+                                    <td>
+                                        <p>package de validation pour pré-valider les informations avant de les
+                                            enregistrer:</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>jwt</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>buffer</p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Shema -->
+                    <div class="tab-pane fade" id="pills-shemaUser" role="tabpanel"
+                        aria-labelledby="pills-shemaUser-tab">
+                        <h2 class="text-center"><ins>Schema</ins><br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <ul class="lead fs-4">
+                            <!-- <div class="card mb-3 mx-2">
+                                <img src="images/signup.png" class="card-img-top" alt="...">
+                            </div> -->
+                            <li>
+                                <p>la méthode Schema de Mongoose pour créer les données utilisateur qui contient les
+                                    champs:
+                                    <br>email: type: String, required: true, unique: true(string, obligatoire et unique:
+                                    pour
+                                    s'assurer que deux utilisateurs ne peuvent pas utiliser la même adresse e-mail)
+                                    <br>password: type: String, required: true.</p>
+                            </li>
+                            <li>
+                                <p>Dans le schéma, la valeur <code>unique</code>, avec le package
+                                    <code>mongoose-unique-validator</code> passé
+                                    comme plug-in, deux utilisateurs ne peut partager la même
+                                    adresse e-mail.</p>
+                            </li>
+                            <li>
+                                <p>Exportation du schéma en tant que modèle Mongoose appelé <code>User</code>, le
+                                    rendant
+                                    par là même disponible pour notre application Express.</p>
+                            </li>
+                        </ul>
+                    </div><!-- fin Shema -->
+
+                    <!-- route -->
+                    <div class="tab-pane fade" id="pills-routeUser" role="tabpanel"
+                        aria-labelledby="pills-routeUser-tab">
+                        <h2 class="text-center"><ins>Route</ins><br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <ul class="lead fs-4">
+                            <!-- <div class="card mb-3 mx-2">
+                            <img src="" class="card-img-top" alt="...">
+                        </div> -->
+                            <li>
+                                <p></p>
+                            </li>
+                            <li>
+                                <p></p>
+                            </li>
+                            <li>
+                                <p></p>
+                            </li>
+                        </ul>
+                    </div><!-- fin route -->
+
+                    <!-- Controller -->
+                    <div class="tab-pane fade" id="pills-controllerUser" role="tabpanel"
+                        aria-labelledby="pills-controllerUser-tab">
+                        <h2 class="text-center"><ins>Controller</ins><br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <!-- signup -->
+                        <div class="col">
+                            <h2 class="text-center">signup<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                <img src="images/signup.png" class="card-img-top" alt="...">
+                            </div> -->
+                                <li>
+                                    <p>dans le bloc <code>then</code>, nous créons un utilisateur, <br>
+                                        Mot de passe: hacher grâce à la méthode <code>hash</code> de
+                                        bcrypt<code></code>.<br>
+                                        email: masque grace à la méthode <code>toString()</code> de <code>buffer</code>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Ensuite on l'enregistre avec la méthode <code>save</code>, en renvoyant une
+                                        réponse
+                                        de
+                                        réussite en cas de succès, et des erreurs avec le code d'erreur en cas d'échec;
+                                    </p>
+                                </li>
+                            </ul>
+                        </div> <!-- Fin signup -->
+
+                        <!-- login -->
+                        <div class="col">
+                            <h2 class="text-center">login<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <li>
+                                    <p>Methode <code>findOne</code> de Mongoose pour vérifier que l'e-mail entré par
+                                        l'utilisateur correspond à
+                                        un utilisateur existant de la base de données</p>
+                                </li>
+
+                                <li>
+                                    <p>La fonction <code>compare</code> de <code>bcrypt</code> va comparer le mot de
+                                        passe
+                                        entré
+                                        par
+                                        l'utilisateur avec le hash enregistré dans la base de données</p>
+                                    <p>s'ils ne correspondent pas, nous renvoyons une erreur 401 Unauthorized et un
+                                        message « Mot de passe incorrect ! » ;</p>
+                                    <p>s'ils correspondent, les informations d'identification de notre utilisateur sont
+                                        valides. Dans ce cas, nous renvoyons une réponse 200 contenant l'ID utilisateur
+                                        et un token</p>
+                                </li>
+                                <li>
+                                    <p>La fonction <code>sign</code> jsonwebtoken pour encoder un nouveau token ;</p>
+                                    <p>ce token contient l'ID de l'utilisateur en tant que payload (les données encodées
+                                        dans le token) ;</p>
+                                    <p>RANDOM_SECRET_KEY une chaîne secrète pour encoder le token</p>
+                                    <p>La durée de validité du token est 24 heures. L'utilisateur devra donc se
+                                        reconnecter au bout de 24 heures ;</p>
+                                    <p>le token est ensuite renvoyer au front-end avec la réponse.</p>
+                                </li>
+                            </ul>
+                        </div> <!-- Fin login -->
+
+                    </div><!-- fin Controller -->
+
+                </div> <!-- fin User -->
+
+                <!--#### auth -->
+                <h2 class="h1 text-center mt-5" id="analyse"><ins>auth.js</ins></h2>
+
+                <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-dependenceAuth-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-dependenceAuth" type="button" role="tab"
+                            aria-controls="pills-dependenceAuth" aria-selected="true">Dépendences</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-controllerAuth-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-controllerAuth" type="button" role="tab"
+                            aria-controls="pills-controllerAuth" aria-selected="false">Controller</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <!-- Dépendence -->
+                    <div class="tab-pane fade show active" id="pills-dependenceAuth" role="tabpanel"
+                        aria-labelledby="pills-dependenceAuth-tab">
+                        <h2 class="text-center">Dépendences</h2>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">Module</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Controlleur -->
+                    <div class="tab-pane fade" id="pills-controllerAuth" role="tabpanel"
+                        aria-labelledby="pills-controllerAuth-tab">
+                        <h2 class="text-center">Controller</h2>
+
+                        <!-- signup -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">signup<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin signup -->
+
+                        <!-- login -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">login<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin login -->
+
+                    </div><!-- fin Controller -->
+
+                </div>
+                <!--#### fin auth -->
+
+                <!--#### sauce -->
+                <h2 class="h1 text-center mt-5" id="analyse"><ins>sauce.js</ins></h2>
+
+                <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-dependenceSauce-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-dependenceSauce" type="button" role="tab"
+                            aria-controls="pills-dependenceSauce" aria-selected="true">Dépendences</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-shemaSauce-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-shemaSauce" type="button" role="tab" aria-controls="pills-shemaSauce"
+                            aria-selected="false">Shéma</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-routeSauce-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-routeSauce" type="button" role="tab" aria-controls="pills-routeSauce"
+                            aria-selected="false">Route</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-controllerSauce-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-controllerSauce" type="button" role="tab"
+                            aria-controls="pills-controllerSauce" aria-selected="false">Controller</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <!-- Dépendence -->
+                    <div class="tab-pane fade show active" id="pills-dependenceSauce" role="tabpanel"
+                        aria-labelledby="pills-dependenceSauce-tab">
+                        <h2 class="text-center">Dépendences</h2>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">Module</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                    <td>
+                                        <p></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Shema -->
+                    <div class="tab-pane fade" id="pills-shemaSauce" role="tabpanel"
+                        aria-labelledby="pills-shemaSauce-tab">
+                        <h2 class="text-center">Schema<br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <ul class="lead fs-4">
+                            <!-- <div class="card mb-3 mx-2">
+                            <img src="" class="card-img-top" alt="...">
+                        </div> -->
+                            <li>
+                                <p></p>
+                            </li>
+                            <li>
+                                <p></p>
+                            </li>
+                            <li>
+                                <p></p>
+                            </li>
+                        </ul>
+                    </div><!-- fin shema -->
+
+                    <!-- Route -->
+                    <div class="tab-pane fade" id="pills-routeSauce" role="tabpanel"
+                        aria-labelledby="pills-routeSauce-tab">
+                        <h2 class="text-center">Route<br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <ul class="lead fs-4">
+                            <!-- <div class="card mb-3 mx-2">
+                            <img src="" class="card-img-top" alt="...">
+                        </div> -->
+                            <li>
+                                <p></p>
+                            </li>
+                            <li>
+                                <p></p>
+                            </li>
+                            <li>
+                                <p></p>
+                            </li>
+                        </ul>
+                    </div><!-- fin route -->
+
+                    <!-- Controller -->
+                    <div class="tab-pane fade" id="pills-controllerSauce" role="tabpanel"
+                        aria-labelledby="pills-controllerSauce-tab">
+                        <h2 class="text-center">Controller<br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+
+                        <!-- createSauce -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">createSauce<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin createSauce -->
+
+                        <!-- getAllSauces -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">getAllSauces<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin getAllSauces -->
+
+                        <!-- getOneSauce -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">getOneSauce<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin getOneSauce -->
+
+                        <!-- updateSauce -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">updateSauce<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin updateSauce -->
+
+                        <!--  -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">deleteSauce<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin deleteSauce -->
+
+                        <!-- likeOrDislike -->
+                        <div class="col">
+                            <h2 class="text-center mt-5">likeOrDislike<br>
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#images">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p></p>
+                                </li>
+                            </ul>
+                        </div><!-- Fin likeOrDislike -->
+
+                    </div><!-- fin -->
+
+                </div>
+                <!--#### Fin sauce -->
+
+                <!--#### multer -->
+                <h2 class="h1 text-center mt-5" id="analyse"><ins>register-img.js</ins></h2>
+
+                <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-dependenceMulter-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-dependenceMulter" type="button" role="tab"
+                            aria-controls="pills-dependenceMulter" aria-selected="true">Dépendences</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-controllerMulter-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-controllerMulter" type="button" role="tab"
+                            aria-controls="pills-controllerMulter" aria-selected="false">Controller</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <!-- Dépendence -->
+                    <div class="tab-pane fade show active" id="pills-dependenceMulter" role="tabpanel"
+                        aria-labelledby="pills-dependenceMulter-tab">
+                        <h2 class="text-center">Dépendences<br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+                        <table class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="fs-5">Module</th>
+                                    <th scope="col" class="fs-5">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>multer</p>
+                                    </td>
+                                    <td>
+                                        <p>multer est un package qui permet de gérer les fichiers entrants dans les
+                                            requêtes HTTP. Les utilisateurs pourront télécharger des images de la sauce
+                                            à vendre.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--  -->
+                    <div class="tab-pane fade" id="pills-controllerMulter" role="tabpanel"
+                        aria-labelledby="pills-controllerMulter-tab">
+                        <h2 class="text-center">Controller <br>
+                            <!-- btn Modal -->
+                            <button type="button" class="btn btn-primary mt-2 mb-5" data-bs-toggle="modal"
+                                data-bs-target="#images">Fichier js</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="images" tabindex="-1" aria-labelledby="imagesLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="imagesLabel">register-img.js</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="multer.png" width="600" alt="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ferme</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </h2>
+
+                        <ul class="lead fs-4">
+                            <!-- <div class="card mb-3 mx-2">
+                                <img src="multer.png" class="card-img-top" alt="...">
+                            </div> -->
+                            <li>
+                                <p>une constante <code>storage</code>, à passer à <code>multer</code> comme
+                                    configuration,
+                                    qui contient la logique nécessaire pour indiquer à <code>multer</code> où
+                                    enregistrer
+                                    les fichiers entrants:</p>
+                            </li><code></code>
+                            <li>
+                                <p>la fonction destination indique à <code>multer</code> d'enregistrer les fichiers dans
+                                    le
+                                    dossier images;</p>
+                            </li>
+                            <li>
+                                <p>la fonction <code>filename</code> indique à <code>multer</code> d'utiliser le nom
+                                    d'origine, de remplacer les espaces par des underscores et d'ajouter un timestamp
+                                    <code>Date.now()</code> comme
+                                    nom de fichier.
+                                    Elle utilise ensuite la constante dictionnaire de type MIME pour résoudre
+                                    l'extension de fichier appropriée ;</p>
+                            </li>
+                            <li>
+                                <p>nous exportons ensuite l'élément <code>multer</code> entièrement configuré, il prend
+                                    la
+                                    constante <code>storage</code> et gère uniquement les téléchargements de
+                                    fichiers image.</p>
+                            </li>
+                        </ul>
+                    </div><!-- fin -->
+
+                </div>
+                <!--#### Fin multer -->
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
