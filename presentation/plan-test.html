@@ -468,20 +468,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <p>bcrypt</p>
-                                        </td>
-                                        <td>
-                                            <p>la fonction de hachage <code>bcrypt</code> dans notre mot de passe va «
-                                                saler » le mot de passe 10 fois. Plus la valeur est élevée, plus
-                                                l'exécution
-                                                de
-                                                la fonction sera longue, et plus le hachage sera sécurisé.</p>
-                                            <p>fonction asynchrone qui renvoie une Promise dans laquelle nous recevons
-                                                le
-                                                hash
-                                                généré ;</p>
-                                        </td>
+                                        <td colspan="2" class="text-center">models</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -490,8 +477,7 @@
                                         <td>
                                             <p>Mongoose pour gérer notre base de données MongoDB, implémenter des
                                                 schémas de données stricts, qui permettent de rendre notre application
-                                                plus
-                                                robuste.</p>
+                                                plus robuste.</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -503,20 +489,75 @@
                                                 enregistrer:</p>
                                         </td>
                                     </tr>
+
+                                    <tr>
+                                        <td colspan="2" class="text-center">Route</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>express</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>express.Router</p>
+                                        </td>
+                                        <td>
+                                            <p>il nous permet de regrouper les gestionnaires de routes pour une partie
+                                                particulière d'un site et d'y accéder à l'aide d'un préfixe de route
+                                                commun</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>../controllers/user</p>
+                                        </td>
+                                        <td>
+                                            <p>Logique de la gestion d'inscription et connection d'utilisateur.</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2" class="text-center">Controllers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>../models/User</p>
+                                        </td>
+                                        <td>
+                                            <p>Le middleware contenant le model d'utilisateur.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>bcrypt</p>
+                                        </td>
+                                        <td>
+                                            <p>la fonction de hachage <code>bcrypt</code> dans notre mot de passe va «
+                                                saler » le mot de passe 10 fois. Plus la valeur est élevée, plus
+                                                l'exécution
+                                                de
+                                                la fonction sera longue, et plus le hachage sera sécurisé.</p>
+                                            <p>fonction asynchrone qui renvoie une Promise dans laquelle nous recevons
+                                                le hash généré ;</p>
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td>
                                             <p>jwt</p>
                                         </td>
                                         <td>
-                                            <p></p>
+                                            <p>Le JSON Web Token (JWT) est une méthode standard pour l’échange de données
+                                                sécurisées entre deux parties.</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p>buffer</p>
+                                            <p>maskemail</p>
                                         </td>
                                         <td>
-                                            <p></p>
+                                            <p>maskdata fournit des fonctionnalités pour masquer des données avec des
+                                                méthodes de masquage appropriées et configurables.</p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -551,8 +592,7 @@
                                     </div>
                                 </div>
                             </h2>
-                            <table
-                                class="table table-hover table-striped table-bordered border-success fs-5">
+                            <table class="table table-hover table-striped table-bordered border-success fs-5">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="fs-5">Champ</th>
@@ -561,20 +601,22 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td colspan="2" class="text-center">Méthode Schema de Mongoose pour créer les données utilisateur qui contient les
+                                        <td colspan="2" class="text-center">Méthode Schema de Mongoose pour créer les
+                                            données utilisateur qui contient les
                                             champ</td>
                                     </tr>
                                     <tr>
                                         <td>email</td>
-                                        <td>type: String, 
+                                        <td>type: String,
                                             <br>required: true.
-                                            <br>unique: true: pour s'assurer que deux utilisateurs ne peuvent pas utiliser la même adresse e-mail
+                                            <br>unique: true: pour s'assurer que deux utilisateurs ne peuvent pas
+                                            utiliser la même adresse e-mail
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>password</td>
                                         <td>
-                                            type: String, 
+                                            type: String,
                                             <br>required: true.
                                         </td>
                                     </tr>
@@ -585,7 +627,8 @@
                                             adresse e-mail.</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2">Exportation du schéma en tant que modèle Mongoose appelé <code>User</code>, le
+                                        <td colspan="2">Exportation du schéma en tant que modèle Mongoose appelé
+                                            <code>User</code>, le
                                             rendant
                                             par là même disponible pour notre application Express.</td>
                                     </tr>
@@ -621,20 +664,6 @@
                                     </div>
                                 </div>
                             </h2>
-                            <ul class="lead fs-4">
-                                <!-- <div class="card mb-3 mx-2">
-                                <img src="" class="card-img-top" alt="...">
-                            </div> -->
-                                <li>
-                                    <p></p>
-                                </li>
-                                <li>
-                                    <p></p>
-                                </li>
-                                <li>
-                                    <p></p>
-                                </li>
-                            </ul>
                         </div><!-- fin route -->
 
                         <!-- Controller -->
@@ -672,7 +701,8 @@
                                     <img src="images/signup.png" class="card-img-top" alt="...">
                                 </div> -->
                                     <li>
-                                        <p>La fonction asynchrone de hachage de bcrypt dans notre mot de passe et lui demandons de «saler» le mot de passe 10 fois.</p>
+                                        <p>La fonction asynchrone de hachage de bcrypt dans notre mot de passe et lui
+                                            demandons de «saler» le mot de passe 10 fois.</p>
                                     </li>
                                     <li>
                                         <p>dans le bloc <code>then</code>, création d'un utilisateur, <br>
@@ -684,7 +714,8 @@
                                     </li>
                                     <li>
                                         <p>Ensuite on l'enregistre avec la méthode <code>save</code>, en renvoyant une
-                                            réponse de réussite en cas de succès, et des erreurs avec le code d'erreur en cas
+                                            réponse de réussite en cas de succès, et des erreurs avec le code d'erreur
+                                            en cas
                                             d'échec;
                                         </p>
                                     </li>
@@ -790,10 +821,11 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <p></p>
+                                            <p>jwt</p>
                                         </td>
                                         <td>
-                                            <p></p>
+                                            <p>Le JSON Web Token (JWT) est une méthode standard pour l’échange de données
+                                                sécurisées entre deux parties.</p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -836,21 +868,29 @@
                                         <img src="" class="card-img-top" alt="...">
                                     </div> -->
                                     <li>
-                                        <p>De nombreux problèmes peuvent se produire, d'ou l'utilisation du bloc <code>try...catch</code>;</p>
+                                        <p>De nombreux problèmes peuvent se produire, d'ou l'utilisation du bloc
+                                            <code>try...catch</code>;</p>
                                     </li>
                                     <li><code></code>
-                                        <p><code>const token: </code>Extraction du token dans le header <code>Authorization</code> de la requête entrante, qui contiendra le mot-clé Bearer.</p>
-                                        <p>la fonction <code>split</code> pour récupérer tout après l'espace dans le <code>header</code>.</p>
+                                        <p><code>const token: </code>Extraction du token dans le header
+                                            <code>Authorization</code> de la requête entrante, qui contiendra le mot-clé
+                                            Bearer.</p>
+                                        <p>la fonction <code>split</code> pour récupérer tout après l'espace dans le
+                                            <code>header</code>.</p>
                                     </li>
                                     <li>
-                                        <p><code>const decodedToken: </code>la fonction <code>verify</code> pour décoder le token. Si celui-ci n'est pas valide, une erreur sera générée;</p>
+                                        <p><code>const decodedToken: </code>la fonction <code>verify</code> pour décoder
+                                            le token. Si celui-ci n'est pas valide, une erreur sera générée;</p>
                                         <p></p>
                                     </li>
                                     <li>
-                                        <p><code>const userId:</code> Extraction de l'ID utilisateur de le <code>token</code>;</p>
+                                        <p><code>const userId:</code> Extraction de l'ID utilisateur de le
+                                            <code>token</code>;</p>
                                     </li>
                                     <li>
-                                        <p><code>condition if:</code> si la demande contient un ID utilisateur, on le compare à celui extrait du token. S'ils sont différents, nous générons une erreur;</p>
+                                        <p><code>condition if:</code> si la demande contient un ID utilisateur, on le
+                                            compare à celui extrait du token. S'ils sont différents, nous générons une
+                                            erreur;</p>
                                     </li>
                                 </ul>
                             </div><!-- Fin signup -->
@@ -902,11 +942,66 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td colspan="2" class="text-center">models</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>mongoose</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-center"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>express</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>express.Router</p>
+                                        </td>
+                                        <td>
+                                            <p>il nous permet de regrouper les gestionnaires de routes pour une partie
+                                                particulière d'un site et d'y accéder à l'aide d'un préfixe de route
+                                                commun</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>../controllers/sauce</p>
+                                        </td>
+                                        <td>
+                                            <p>Logique CRUD de la gestion de sauce</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>../middleware/auth</p>
+                                        </td>
+                                        <td>
+                                            <p>Logique qui protégera les routes sélectionnées et vérifier que
+                                                l'utilisateur est authentifié avant d'autoriser l'envoi de ses requêtes.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>../middleware/register-img</p>
+                                        </td>
+                                        <td>
+                                            <p>Logique du traitement des fichiers récu du front.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-center"></td>
+                                    </tr>
+                                    <tr>
                                         <td>
                                             <p>../models/Sauce</p>
                                         </td>
                                         <td>
-                                            <p></p>
+                                            <p>Le middleware contenant le model de sauce</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -952,8 +1047,7 @@
                                     </div>
                                 </div>
                             </h2>
-                            <table
-                                class="table table-hover table-striped table-bordered border-success fs-5">
+                            <table class="table table-hover table-striped table-bordered border-success fs-5">
                                 <thead>
                                     <tr>
                                         <th scope="col" class="fs-5">Champ</th>
@@ -962,69 +1056,71 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td colspan="2" class="text-center">Méthode Schema de Mongoose pour créer les données utilisateur qui contient les
+                                        <td colspan="2" class="text-center">Méthode Schema de Mongoose pour créer les
+                                            données utilisateur qui contient les
                                             champ</td>
                                     </tr>
                                     <tr>
-                                        <td>userId</td>
-                                        <td>type: String, 
+                                        <td colspan="1">userId</td>
+                                        <td>type: String => L'information reçu du front sera de type string.
+                                            <br>required: true => le champs sera obligatoire
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">name</td>
+                                        <td>type: String,
                                             <br>required: true
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>type: String, 
+                                        <td colspan="1">manufacturer</td>
+                                        <td>type: String,
                                             <br>required: true
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>manufacturer</td>
-                                        <td>type: String, 
+                                        <td colspan="1">description</td>
+                                        <td>type: String,
                                             <br>required: true
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>description</td>
-                                        <td>type: String, 
+                                        <td colspan="1">mainPepper</td>
+                                        <td>type: String,
                                             <br>required: true
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>mainPepper</td>
-                                        <td>type: String, 
+                                        <td colspan="1">imageUrl</td>
+                                        <td>type: String,
                                             <br>required: true
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>imageUrl</td>
-                                        <td>type: String, 
+                                        <td colspan="1">heat</td>
+                                        <td>type: Number => L'information reçu du front sera de type nombre
                                             <br>required: true
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>heat</td>
-                                        <td>type: Number, 
-                                            <br>required: true
+                                        <td colspan="1">likes</td>
+                                        <td>type: Number,
+                                            <br>default: 0 => il sera par default à 0.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>likes</td>
-                                        <td>type: Number, 
+                                        <td colspan="1">dislikes</td>
+                                        <td>type: Number,
                                             <br>default: 0
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>dislikes</td>
-                                        <td>type: Number, 
-                                            <br>default: 0
+                                        <td colspan="1">usersLiked</td>
+                                        <td>type: tableau => L'information reçu du front sera un tableau de type string
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>usersLiked</td>
-                                        <td>type: tableau </td>
-                                    </tr>
-                                    <tr>
-                                        <td>usersDisliked</td>
+                                        <td colspan="1">usersDisliked</td>
                                         <td>type: tableau </td>
                                     </tr>
                                 </tbody>
@@ -1059,20 +1155,6 @@
                                     </div>
                                 </div>
                             </h2>
-                            <ul class="lead fs-4">
-                                <!-- <div class="card mb-3 mx-2">
-                                <img src="" class="card-img-top" alt="...">
-                            </div> -->
-                                <li>
-                                    <p></p>
-                                </li>
-                                <li>
-                                    <p></p>
-                                </li>
-                                <li>
-                                    <p></p>
-                                </li>
-                            </ul>
                         </div><!-- fin route -->
 
                         <!-- Controller -->
@@ -1108,9 +1190,6 @@
                                     </div>
                                 </h2>
                                 <ul class="lead fs-4">
-                                    <!-- <div class="card mb-3 mx-2">
-                                        <img src="" class="card-img-top" alt="...">
-                                    </div> -->
                                     <li>
                                         <p>Une constante sauce avec une instance du modèle <code>Sauce</code> en lui
                                             passant un objet JavaScript
@@ -1127,8 +1206,8 @@
                                                 compléter notre
                                                 URL.</span>
                                         </p>
-                                        <p class="ms-3">- </p>
-                                        <p class="ms-3">- </p>
+                                        <p class="ms-3">- likes et dislikes à 0 par default lors de la création.</p>
+                                        <p class="ms-3">- usersLiked et usersDisliked à First par default lors de la création.</p>
                                     </li>
                                     <li>
                                         <p>L'opérateur spread ... est utilisé pour faire une copie de tous les éléments
@@ -1139,11 +1218,9 @@
                                             base de
                                             données.</p>
                                         <p>La méthode <code>save()</code> renvoie une Promise. Le bloc
-                                            <code>then()</code>, nous
-                                            renverra un code 201 de réussite et le
+                                            <code>then()</code>, nous renverra un code 201 de réussite et le
                                             bloc <code>catch()</code>, nous renverra une réponse avec l'erreur générée
-                                            par
-                                            Mongoose ainsi qu'un code d'erreur 400</p>
+                                            par Mongoose ainsi qu'un code d'erreur 400</p>
                                     </li>
                                 </ul>
                             </div><!-- Fin createSauce -->
@@ -1185,10 +1262,8 @@
                                             tableau contenant toutes les Sauces dans la base de données. </p>
                                     </li>
                                     <li>
-                                        <p></p>
-                                    </li>
-                                    <li>
-                                        <p></p>
+                                        <p><code>Sauce</code> est ensuite retourné dans une Promise et envoyé au
+                                            front-end;</p>
                                     </li>
                                 </ul>
                             </div><!-- Fin getAllSauces -->
@@ -1222,9 +1297,6 @@
                                     </div>
                                 </h2>
                                 <ul class="lead fs-4">
-                                    <!-- <div class="card mb-3 mx-2">
-                                        <img src="" class="card-img-top" alt="...">
-                                    </div> -->
                                     <li>
                                         <p>La méthode <code>findOne()</code> dans notre modèle <code>Sauce</code> pour
                                             trouver la sauce unique ayant le même _id que le paramètre de la requête
@@ -1274,26 +1346,22 @@
                                         <img src="" class="card-img-top" alt="...">
                                     </div> -->
                                     <li>
-                                        <p>création d'un objet sauceObject qui regarde si req.file existe ou non, avec
-                                            l'opération ternaire.
-                                            <span class="ms-3">- true, on traite la nouvelle image;</span>
-                                            <span class="ms-3">- false, on traite simplement l'objet entrant.;</span>
+                                        <p>une constante sauceObject en opération ternaire qui regarde si <code>req.file</code> existe ou non.
+                                            <br><span class="ms-3">- true, on traite la nouvelle image;</span>
+                                            <br><span class="ms-3">- false, on traite simplement l'objet entrant.;</span>
                                         </p>
                                     </li>
                                     <li>
                                         <p>Une instance Sauce à partir de sauceObject avec la méthode
-                                            <code></code>updateOne() permet de mettre à
+                                            <code>updateOne()</code> permet de mettre à
                                             jour le modèle Sauce qui correspond à l'objet que nous passons comme premier
                                             argument. Nous utilisons aussi le paramètre id passé dans la demande et le
-                                            remplaçons par la Sauce passé comme second argument.</p>
-                                    </li>
-                                    <li>
-                                        <p></p>
+                                            remplaçons par la <code>Sauce</code> passé comme second argument.</p>
                                     </li>
                                 </ul>
                             </div><!-- Fin updateSauce -->
 
-                            <!--  -->
+                            <!-- deleteSauce -->
                             <div class="col">
                                 <h2 class="text-center mt-5">deleteSauce
                                     <!-- btn Modal -->
@@ -1322,9 +1390,6 @@
                                     </div>
                                 </h2>
                                 <ul class="lead fs-4">
-                                    <!-- <div class="card mb-3 mx-2">
-                                        <img src="" class="card-img-top" alt="...">
-                                    </div> -->
                                     <li>
                                         <p>La méthode <code>findOne()</code> recherche l'ID que nous recevons comme
                                             paramètre pour accéder a l'élement correspondant dans la base de données;
@@ -1335,16 +1400,14 @@
                                             <code>split</code> pour séparer le nom de fichier;</p>
                                     </li>
                                     <li>
-                                        <p>la fonction <code>unlink</code> du package <code>fs</code> pour supprimer ce fichier, en lui passant le
-                                            fichier à supprimer et le callback à exécuter une fois ce fichier supprimé ;
+                                        <p>la fonction <code>unlink</code> du package <code>fs</code> pour supprimer ce
+                                            fichier, en lui passant le
+                                            fichier à supprimer et le callback à exécuter une fois ce fichier supprimé;
                                         </p>
                                     </li>
                                     <li>
-                                        <p>Dans le callback la méthode <code>deleteOne()</code> prend en paramètre l'objet correspondant
-                                            au document à supprimer dans la base de données.</p>
-                                    </li>
-                                    <li>
-                                        <p></p>
+                                        <p>Dans le callback la méthode <code>deleteOne()</code> prend en paramètre
+                                            l'objet correspondant au document à supprimer dans la base de données.</p>
                                     </li>
                                 </ul>
                             </div><!-- Fin deleteSauce -->
@@ -1546,8 +1609,7 @@
                                         <td>
                                             <p>multer est un package qui permet de gérer les fichiers entrants dans les
                                                 requêtes HTTP. Les utilisateurs pourront télécharger des images de la
-                                                sauce
-                                                à vendre.</p>
+                                                sauce à vendre.</p>
                                         </td>
                                     </tr>
                                 </tbody>
