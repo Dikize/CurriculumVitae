@@ -551,31 +551,46 @@
                                     </div>
                                 </div>
                             </h2>
-                            <ul class="lead fs-4">
-                                <!-- <div class="card mb-3 mx-2">
-                                    <img src="images/signup.png" class="card-img-top" alt="...">
-                                </div> -->
-                                <li>
-                                    <p>la méthode Schema de Mongoose pour créer les données utilisateur qui contient les
-                                        champs:
-                                        <br>email: type: String, required: true, unique: true(string, obligatoire et
-                                        unique:
-                                        pour
-                                        s'assurer que deux utilisateurs ne peuvent pas utiliser la même adresse e-mail)
-                                        <br>password: type: String, required: true.</p>
-                                </li>
-                                <li>
-                                    <p>Dans le schéma, la valeur <code>unique</code>, avec le package
-                                        <code>mongoose-unique-validator</code> passé
-                                        comme plug-in, deux utilisateurs ne peut partager la même
-                                        adresse e-mail.</p>
-                                </li>
-                                <li>
-                                    <p>Exportation du schéma en tant que modèle Mongoose appelé <code>User</code>, le
-                                        rendant
-                                        par là même disponible pour notre application Express.</p>
-                                </li>
-                            </ul>
+                            <table
+                                class="table table-hover table-striped table-bordered border-success fs-5">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="fs-5">Champ</th>
+                                        <th scope="col" class="fs-5">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2" class="text-center">Méthode Schema de Mongoose pour créer les données utilisateur qui contient les
+                                            champ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>email</td>
+                                        <td>type: String, 
+                                            <br>required: true.
+                                            <br>unique: true: pour s'assurer que deux utilisateurs ne peuvent pas utiliser la même adresse e-mail
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>password</td>
+                                        <td>
+                                            type: String, 
+                                            <br>required: true.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">Dans le schéma, la valeur <code>unique</code>, avec le package
+                                            <code>mongoose-unique-validator</code> passé
+                                            comme plug-in, deux utilisateurs ne peut partager la même
+                                            adresse e-mail.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">Exportation du schéma en tant que modèle Mongoose appelé <code>User</code>, le
+                                            rendant
+                                            par là même disponible pour notre application Express.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div><!-- fin Shema -->
 
                         <!-- route -->
@@ -657,18 +672,19 @@
                                     <img src="images/signup.png" class="card-img-top" alt="...">
                                 </div> -->
                                     <li>
-                                        <p>dans le bloc <code>then</code>, nous créons un utilisateur, <br>
+                                        <p>La fonction asynchrone de hachage de bcrypt dans notre mot de passe et lui demandons de «saler» le mot de passe 10 fois.</p>
+                                    </li>
+                                    <li>
+                                        <p>dans le bloc <code>then</code>, création d'un utilisateur, <br>
                                             Mot de passe: hacher grâce à la méthode <code>hash</code> de
                                             bcrypt<code></code>.<br>
-                                            email: masque grace à la méthode <code>toString()</code> de
-                                            <code>buffer</code>.
+                                            email: masque grace à la méthode <code>maskemail</code> de
+                                            <code>maskemail</code>.
                                         </p>
                                     </li>
                                     <li>
                                         <p>Ensuite on l'enregistre avec la méthode <code>save</code>, en renvoyant une
-                                            réponse
-                                            de
-                                            réussite en cas de succès, et des erreurs avec le code d'erreur en cas
+                                            réponse de réussite en cas de succès, et des erreurs avec le code d'erreur en cas
                                             d'échec;
                                         </p>
                                     </li>
@@ -787,7 +803,7 @@
                         <!-- Controlleur -->
                         <div class="tab-pane fade" id="pills-controllerAuth" role="tabpanel"
                             aria-labelledby="pills-controllerAuth-tab">
-                            <!-- signup -->
+                            <!-- auth -->
                             <div class="col">
                                 <h2 class="text-center  my-2">
                                     <!-- btn Modal -->
@@ -799,7 +815,7 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title me-4 m-auto" id="authLabel">register-img.js
+                                                    <h5 class="modal-title me-4 m-auto" id="authLabel">auth.js
                                                     </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -820,13 +836,21 @@
                                         <img src="" class="card-img-top" alt="...">
                                     </div> -->
                                     <li>
+                                        <p>De nombreux problèmes peuvent se produire, d'ou l'utilisation du bloc <code>try...catch</code>;</p>
+                                    </li>
+                                    <li><code></code>
+                                        <p><code>const token: </code>Extraction du token dans le header <code>Authorization</code> de la requête entrante, qui contiendra le mot-clé Bearer.</p>
+                                        <p>la fonction <code>split</code> pour récupérer tout après l'espace dans le <code>header</code>.</p>
+                                    </li>
+                                    <li>
+                                        <p><code>const decodedToken: </code>la fonction <code>verify</code> pour décoder le token. Si celui-ci n'est pas valide, une erreur sera générée;</p>
                                         <p></p>
                                     </li>
                                     <li>
-                                        <p></p>
+                                        <p><code>const userId:</code> Extraction de l'ID utilisateur de le <code>token</code>;</p>
                                     </li>
                                     <li>
-                                        <p></p>
+                                        <p><code>condition if:</code> si la demande contient un ID utilisateur, on le compare à celui extrait du token. S'ils sont différents, nous générons une erreur;</p>
                                     </li>
                                 </ul>
                             </div><!-- Fin signup -->
@@ -928,20 +952,83 @@
                                     </div>
                                 </div>
                             </h2>
-                            <ul class="lead fs-4">
-                                <!-- <div class="card mb-3 mx-2">
-                                <img src="" class="card-img-top" alt="...">
-                            </div> -->
-                                <li>
-                                    <p></p>
-                                </li>
-                                <li>
-                                    <p></p>
-                                </li>
-                                <li>
-                                    <p></p>
-                                </li>
-                            </ul>
+                            <table
+                                class="table table-hover table-striped table-bordered border-success fs-5">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="fs-5">Champ</th>
+                                        <th scope="col" class="fs-5">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2" class="text-center">Méthode Schema de Mongoose pour créer les données utilisateur qui contient les
+                                            champ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>userId</td>
+                                        <td>type: String, 
+                                            <br>required: true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>name</td>
+                                        <td>type: String, 
+                                            <br>required: true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>manufacturer</td>
+                                        <td>type: String, 
+                                            <br>required: true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>description</td>
+                                        <td>type: String, 
+                                            <br>required: true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>mainPepper</td>
+                                        <td>type: String, 
+                                            <br>required: true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>imageUrl</td>
+                                        <td>type: String, 
+                                            <br>required: true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>heat</td>
+                                        <td>type: Number, 
+                                            <br>required: true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>likes</td>
+                                        <td>type: Number, 
+                                            <br>default: 0
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>dislikes</td>
+                                        <td>type: Number, 
+                                            <br>default: 0
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>usersLiked</td>
+                                        <td>type: tableau </td>
+                                    </tr>
+                                    <tr>
+                                        <td>usersDisliked</td>
+                                        <td>type: tableau </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div><!-- fin shema -->
 
                         <!-- Route -->
