@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation P</title>
+    <title>Présentation de SO PEKOCKO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito+Sans&display=swap" rel="stylesheet">
@@ -42,28 +42,284 @@
         <div class="row">
 
             <div class="col-12">
-                <h1 class="text-center p-4">Construire le back-end d'un site Pe</h1>
+                <h1 class="text-center p-4">Construire le back-end du site SO PEKOCKO</h1>
 
                 <div class="mx-5 d-flex justify-content-center flex-column">
                     <h2 class="h1 text-center my-5"><ins>Compte-rendu mission</ins></h2>
-                    <p class="lead fs-4">L’application web est composée de 4 pages :</p>
-                    <ul class="lead fs-4">
-                        <li>Une page “accueil” sous forme de liste carte, montrant tous les articles disponibles à la
-                            vente.</li>
-                        <li>Une page “produit”, qui affiche de manière dynamique l'élément sélectionné par l'utilisateur
-                            et lui permet de personnaliser le produit et de l'ajouter à son panier.</li>
-                        <li>Une page “panier” contenant un résumé des produits dans le panier, le prix total et un
-                            formulaire permettant de passer une commande.</li>
-                        <li>Une page “confirmation” de commande, remerciant l'utilisateur pour sa commande, et indiquant
-                            le prix total et l'identifiant de commande envoyé par le serveur.</li>
+                    <p class="fs-5">Le site SO PEKOCKO est un site d'avis culinaires où les utilisateurs peuvent
+                        partager des fiches
+                        concernant des sauces selon un modèle précis, incluant la possibilité de "liker" ou "disliker"
+                        les sauces.</p>
+                    <p class="fs-5">Permettre à l'internaute de s'inscrire sur le site et de pouvoir:</p>
+                    <ul class="fs-5">
+                        <li>consulter toutes les sauces enregistrées</li>
+                        <li>créer des sauces</li>
+                        <li>modifier les sauces qu'il a créé</li>
+                        <li>supprimer les sauces qu'il a crée</li>
+                        <li>liker ou disliker les sauces enregistrées sur le site</li>
                     </ul>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6 p-5">
+                        <div class="list-group">
+                            <a href="#app1" class="list-group-item list-group-item-action text-center">
+                                <div class="text-center">
+                                    <h5 class="mb-1">app.js</h5>
+                                </div>
+                                <p class="mb-1">Gestion des params du server.</p>
+                            </a>
+                            <a href="#server1" class="list-group-item list-group-item-action text-center">
+                                <div class="text-center">
+                                    <h5 class="mb-1">server.js</h5>
+                                </div>
+                                <p class="mb-1">Gestion de l'application</p>
+                            </a>
+                            <a href="#user1" class="list-group-item list-group-item-action text-center">
+                                <div class="text-center">
+                                    <h5 class="mb-1">Logique User</h5>
+                                </div>
+                                <p class="mb-1">Gestion de l'incription et connection.</p>
+                            </a>
+                            <a href="#auth1" class="list-group-item list-group-item-action text-center">
+                                <div class="text-center">
+                                    <h5 class="mb-1">auth.js</h5>
+                                </div>
+                                <p class="mb-1">Logique qui protègera les routes sélectionnées et vérifier que
+                                    l'utilisateur est authentifié avant d'autoriser l'envoi de ses requêtes.</p>
+                            </a>
+                            <a href="#register1" class="list-group-item list-group-item-action text-center">
+                                <div class="text-center">
+                                    <h5 class="mb-1">register-img.js</h5>
+                                </div>
+                                <p class="mb-1">Gestion du traitement des fichiers récu du front.</p>
+                            </a>
+                            <a href="#sauce1" class="list-group-item list-group-item-action text-center">
+                                <div class="text-center">
+                                    <h5 class="mb-1">CRUD sauce</h5>
+                                </div>
+                                <p class="mb-1">Gestion CRUD des sauce</p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <h2 class="h1 text-center mt-5" id="analyse"><ins>Rapport</ins></h2>
 
+
+                <!-- App -->
+                <div class="col border border-2 border-black shadow-lg my-5 rounded">
+                    <h2 class="h1 text-center mt-5" id="app1"><ins>app.js</ins></h2>
+
+                    <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-dependenceApp-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-dependenceApp" type="button" role="tab"
+                                aria-controls="pills-dependenceApp" aria-selected="true">Dépendences</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-controllerApp-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-controllerApp" type="button" role="tab"
+                                aria-controls="pills-controllerApp" aria-selected="false">app server</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+
+                        <!-- Dépendence -->
+                        <div class="tab-pane fade show active px-3" id="pills-dependenceApp" role="tabpanel"
+                            aria-labelledby="pills-dependenceApp-tab">
+                            <h2 class="text-center">Dépendences</h2>
+                            <table
+                                class="table table-hover table-striped table-bordered border-success text-center fs-5">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="fs-5">Module</th>
+                                        <th scope="col" class="fs-5">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p>express</p>
+                                        </td>
+                                        <td>
+                                            <p>Express est un framework reposant sur Node qui facilite la création et la
+                                                gestion des serveurs Node.</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <p>path</p>
+                                        </td>
+                                        <td>
+                                            <p>path fournit des utilitaires pour travailler avec les chemins de fichiers
+                                                et de répertoires.</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <p>mongoose</p>
+                                        </td>
+                                        <td>
+                                            <p>Mongoose pour gérer notre base de données MongoDB, implémenter des
+                                                schémas de données stricts, qui permettent de rendre notre application
+                                                plus robuste.</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <p>helmet</p>
+                                        </td>
+                                        <td>
+                                            <p>protection contre les attaques de type cross-site scripting.</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <p>dotenv</p>
+                                        </td>
+                                        <td>
+                                            <p>charge des variables d'environnement à partir d'un fichier
+                                                <code>.env</code> dans <code>process.env</code>.</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <p><code>./routes/sauce'</code></p>
+                                        </td>
+                                        <td>
+                                            <p>Logique contenant les differentes routes CRUD sauce</p>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <p><code>./routes/user</code></p>
+                                        </td>
+                                        <td>
+                                            <p>Logique contenant les differentes routes d'inscription et
+                                                d'identification.</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Fichier -->
+                        <div class="tab-pane fade px-3" id="pills-controllerApp" role="tabpanel"
+                            aria-labelledby="pills-controllerApp-tab">
+                            <h2 class="text-center">
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#app">Code</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="app" tabindex="-1" aria-labelledby="appLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title me-4 m-auto" id="appLabel">app.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="img/app.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+
+                            <table class="table table-hover table-striped table-bordered border-success fs-5">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="fs-5">Module</th>
+                                        <th scope="col" class="fs-5">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>mongoose.connect</td>
+                                        <td><code>process.env.MONGODB</code>: permet de recuperer l'url de connection
+                                            dans le <code>.env</code>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <h1 class="text-center">Définition de headers</h1>
+                                            <p>Il s'agit d'un système de sécurité qui, par défaut, bloque les appels
+                                                HTTP d'être
+                                                effectués entre des serveurs différents, ce qui empêche donc les
+                                                requêtes
+                                                malveillantes d'accéder à des ressources sensibles. Dans notre cas, nous
+                                                avons deux origines : <code>localhost:3000</code> et
+                                                <code>localhost:4200</code>, et
+                                                pour qu'elles puissent communiquer entre elles. Il faudra ajouter des
+                                                headers à l'objet <code>response</code>.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>res.setHeader</p>
+                                        </td>
+                                        <td>
+                                            <ol>
+                                                <li>accéder à notre API depuis n'importe quelle origine
+                                                    (<code>'*'</code>);
+                                                </li>
+                                                <li>ajouter les headers mentionnés aux requêtes envoyées vers notre API
+                                                    (<code>Origin</code> , <code>X-Requested-With</code>, etc.) ;</li>
+                                                <li>envoyer des requêtes avec les méthodes mentionnées (
+                                                    <code>GET</code>
+                                                    ,<code>POST</code> , <code>POST</code>...).</li>
+                                            </ol>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>helmet</code></td>
+                                        <td>Utilisation d'helmet pour la protection contre les attaques de type
+                                            cross-site scripting</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-center">Route </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>images</code></td>
+                                        <td>Gestion des ressource images de manière statique avec express (un
+                                            sous-répertoire de notre
+                                            répertoire de base, <code>__dirname</code>) à chaque fois qu'elle reçoit une
+                                            requête
+                                            vers la route/images. Enregistrez et actualisez l'application dans le
+                                            navigateur;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sauces</td>
+                                        <td>Les routes du CRUD sauce</td>
+                                    </tr>
+                                    <tr>
+                                        <td>auth</td>
+                                        <td>Les routes vers l'auth</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div><!-- fin fichier -->
+
+                    </div>
+                </div> <!-- Fin app -->
+
                 <!-- server -->
                 <div class="col border border-2 border-black shadow-lg my-5 rounded">
-                    <h2 class="h1 text-center mt-5" id="analyse"><ins>server.js</ins></h2>
+                    <h2 class="h1 text-center mt-5" id="server1"><ins>server.js</ins></h2>
 
                     <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -100,6 +356,14 @@
                                             <p>Le package <code>http</code> natif de <code>Node</code> est utilisé pour
                                                 créer un
                                                 serveur</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><code>./app</code></p>
+                                        </td>
+                                        <td>
+                                            <p>Logique de l'application Express.</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -163,10 +427,9 @@
                                         </td>
                                         <td>
                                             <p>Le package <code>http</code> natif de <code>Node</code> est utilisé pour
-                                                créer un
-                                                serveur, en passant le fichier app.js qui sera exécutée à chaque appel
-                                                effectué
-                                                vers ce serveur.</p>
+                                                créer un serveur, en passant le fichier app.js qui sera exécutée à
+                                                chaque appel
+                                                effectué vers ce serveur.</p>
                                         </td>
                                     </tr>
 
@@ -176,8 +439,7 @@
                                         </td>
                                         <td>
                                             <p>la fonction <code>normalizePort</code> renvoie un port valide, qu'il soit
-                                                fourni
-                                                sous la forme d'un numéro ou d'une chaîne ;</p>
+                                                fourni sous la forme d'un numéro ou d'une chaîne ;</p>
                                         </td>
                                     </tr>
 
@@ -187,29 +449,9 @@
                                         </td>
                                         <td>
                                             <p>la fonction <code>errorHandler</code> recherche les différentes erreurs
-                                                et
-                                                les
-                                                gère de manière appropriée. Elle est ensuite enregistrée dans le serveur
-                                                ;
+                                                et les gère de manière appropriée. Elle est ensuite enregistrée dans le
+                                                serveur ;
                                             </p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p>server.on</p>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p>server.on</p>
-                                        </td>
-                                        <td>
-                                            <p></p>
                                         </td>
                                     </tr>
 
@@ -219,9 +461,7 @@
                                         </td>
                                         <td>
                                             <p>un écouteur d'évènements est enregistré, consignant le port ou le canal
-                                                nommé
-                                                sur
-                                                lequel le serveur s'exécute dans la console.</p>
+                                                nommé sur lequel le serveur s'exécute dans la console.</p>
                                         </td>
                                     </tr>
 
@@ -232,205 +472,9 @@
                     </div>
                 </div> <!-- Fin server -->
 
-                <!-- App -->
-                <div class="col border border-2 border-black shadow-lg my-5 rounded">
-                    <h2 class="h1 text-center mt-5" id="analyse"><ins>app.js</ins></h2>
-
-                    <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-dependenceApp-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-dependenceApp" type="button" role="tab"
-                                aria-controls="pills-dependenceApp" aria-selected="true">Dépendences</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-controllerApp-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-controllerApp" type="button" role="tab"
-                                aria-controls="pills-controllerApp" aria-selected="false">app server</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="pills-tabContent">
-
-                        <!-- Dépendence -->
-                        <div class="tab-pane fade show active px-3" id="pills-dependenceApp" role="tabpanel"
-                            aria-labelledby="pills-dependenceApp-tab">
-                            <h2 class="text-center">Dépendences</h2>
-                            <table
-                                class="table table-hover table-striped table-bordered border-success text-center fs-5">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="fs-5">Module</th>
-                                        <th scope="col" class="fs-5">Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>express</p>
-                                        </td>
-                                        <td>
-                                            <p>Express est un framework reposant sur Node qui facilite la création et la
-                                                gestion des serveurs Node.</p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p>path</p>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p>mongoose</p>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p>helmet</p>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <p>dotenv</p>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- Fichier -->
-                        <div class="tab-pane fade px-3" id="pills-controllerApp" role="tabpanel"
-                            aria-labelledby="pills-controllerApp-tab">
-                            <h2 class="text-center">
-                                <!-- btn Modal -->
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                    data-bs-target="#app">Code</button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="app" tabindex="-1" aria-labelledby="appLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title me-4 m-auto" id="appLabel">app.js</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="img/app.png" width="600" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Ferme</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </h2>
-
-                            <h2 class="text-center">mongoose.connect</h2>
-                            <ul class="lead fs-4">
-                                <li></li>
-                            </ul>
-                            <table
-                                class="table table-hover table-striped table-bordered border-success text-center fs-5">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="fs-5">Module</th>
-                                        <th scope="col" class="fs-5">Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="2">
-                                            <h1>Définition de headers</h1>
-                                            <p>Il s'agit d'un système de sécurité qui, par défaut, bloque les appels
-                                                HTTP
-                                                d'être
-                                                effectués entre des serveurs différents, ce qui empêche donc les
-                                                requêtes
-                                                malveillantes d'accéder à des ressources sensibles. Dans notre cas, nous
-                                                avons
-                                                deux origines : <code>localhost:3000</code> et
-                                                <code>localhost:4200</code>,
-                                                et
-                                                pour qu'elles puissent communiquer entre elles. Il faudra ajouter des
-                                                headers à l'objet <code>response</code>.</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>res.setHeader</p>
-                                        </td>
-                                        <td>
-                                            <ol>
-                                                <li>accéder à notre API depuis n'importe quelle origine
-                                                    (<code>'*'</code>);
-                                                </li>
-                                                <li>ajouter les headers mentionnés aux requêtes envoyées vers notre API
-                                                    (<code>Origin</code> , <code>X-Requested-With</code>, etc.) ;</li>
-                                                <li>envoyer des requêtes avec les méthodes mentionnées (
-                                                    <code>GET</code>
-                                                    ,<code>POST</code> , <code>POST</code>...).</li>
-                                            </ol>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">Helmet</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">Route </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>images</td>
-                                        <td>Gestion des ressource images de manière statique avec express (un
-                                            sous-répertoire de notre
-                                            répertoire de base, <code>__dirname</code>) à chaque fois qu'elle reçoit une
-                                            requête
-                                            vers la route/images. Enregistrez et actualisez l'application dans le
-                                            navigateur;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>sauces</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>auth</td>
-                                        <td></td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-
-                        </div><!-- fin fichier -->
-
-                    </div>
-                </div> <!-- Fin app -->
-
                 <!-- user -->
                 <div class="col border border-2 border-black shadow-lg my-5 rounded">
-                    <h2 class="h1 text-center mt-5" id="analyse"><ins>user.js</ins></h2>
+                    <h2 class="h1 text-center mt-5" id="user1"><ins>user.js</ins></h2>
 
                     <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -497,6 +541,10 @@
                                         <td>
                                             <p>express</p>
                                         </td>
+                                        <td>
+                                            <p>Express est un framework reposant sur Node qui facilite la création et la
+                                                gestion des serveurs Node.</p>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -533,13 +581,7 @@
                                             <p>bcrypt</p>
                                         </td>
                                         <td>
-                                            <p>la fonction de hachage <code>bcrypt</code> dans notre mot de passe va «
-                                                saler » le mot de passe 10 fois. Plus la valeur est élevée, plus
-                                                l'exécution
-                                                de
-                                                la fonction sera longue, et plus le hachage sera sécurisé.</p>
-                                            <p>fonction asynchrone qui renvoie une Promise dans laquelle nous recevons
-                                                le hash généré ;</p>
+                                            <p>Une bibliothèque pour hacher les mots de passe.</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -547,7 +589,8 @@
                                             <p>jwt</p>
                                         </td>
                                         <td>
-                                            <p>Le JSON Web Token (JWT) est une méthode standard pour l’échange de données
+                                            <p>Le JSON Web Token (JWT) est une méthode standard pour l’échange de
+                                                données
                                                 sécurisées entre deux parties.</p>
                                         </td>
                                     </tr>
@@ -556,7 +599,7 @@
                                             <p>maskemail</p>
                                         </td>
                                         <td>
-                                            <p>maskdata fournit des fonctionnalités pour masquer des données avec des
+                                            <p>maskemail fournit des fonctionnalités pour masquer des données avec des
                                                 méthodes de masquage appropriées et configurables.</p>
                                         </td>
                                     </tr>
@@ -701,8 +744,13 @@
                                     <img src="images/signup.png" class="card-img-top" alt="...">
                                 </div> -->
                                     <li>
-                                        <p>La fonction asynchrone de hachage de bcrypt dans notre mot de passe et lui
-                                            demandons de «saler» le mot de passe 10 fois.</p>
+                                        <p>la fonction de hachage <code>bcrypt</code> ici va «
+                                            saler » le mot de passe 10 fois. Plus la valeur est élevée, plus
+                                            l'exécution
+                                            de
+                                            la fonction sera longue, et plus le hachage sera sécurisé.</p>
+                                        <p>fonction asynchrone qui renvoie une Promise dans laquelle nous recevons
+                                            le hash généré;</p>
                                     </li>
                                     <li>
                                         <p>dans le bloc <code>then</code>, création d'un utilisateur, <br>
@@ -753,14 +801,12 @@
                                     <li>
                                         <p>Methode <code>findOne</code> de Mongoose pour vérifier que l'e-mail entré par
                                             l'utilisateur correspond à
-                                            un utilisateur existant de la base de données</p>
+                                            un utilisateur existant dans la base de données</p>
                                     </li>
 
                                     <li>
                                         <p>La fonction <code>compare</code> de <code>bcrypt</code> va comparer le mot de
-                                            passe
-                                            entré
-                                            par
+                                            passe entré par
                                             l'utilisateur avec le hash enregistré dans la base de données</p>
                                         <p>s'ils ne correspondent pas, nous renvoyons une erreur 401 Unauthorized et un
                                             message « Mot de passe incorrect ! » ;</p>
@@ -791,7 +837,7 @@
 
                 <!--#### auth -->
                 <div class="col border border-2 border-black shadow-lg my-5 rounded">
-                    <h2 class="h1 text-center mt-5" id="analyse"><ins>auth.js</ins></h2>
+                    <h2 class="h1 text-center mt-5" id="auth1"><ins>auth.js</ins></h2>
 
                     <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -824,7 +870,8 @@
                                             <p>jwt</p>
                                         </td>
                                         <td>
-                                            <p>Le JSON Web Token (JWT) est une méthode standard pour l’échange de données
+                                            <p>Le JSON Web Token (JWT) est une méthode standard pour l’échange de
+                                                données
                                                 sécurisées entre deux parties.</p>
                                         </td>
                                     </tr>
@@ -837,7 +884,14 @@
                             aria-labelledby="pills-controllerAuth-tab">
                             <!-- auth -->
                             <div class="col">
-                                <h2 class="text-center  my-2">
+                                <h2 class="text-center my-2">
+                                    <p style="font-family: sans-serif;">Les tokens d'authentification permettent aux
+                                        utilisateurs de ne se connecter qu'une
+                                        seule fois à leur compte. Au moment de se connecter, ils recevront leur token et
+                                        le
+                                        renverront automatiquement à chaque requête par la suite. Ceci permettra au
+                                        back-end
+                                        de vérifier que la requête est authentifiée.</p>
                                     <!-- btn Modal -->
                                     <button type="button" class="btn btn-success mt-2 mb-5" data-bs-toggle="modal"
                                         data-bs-target="#auth">Code</button>
@@ -884,7 +938,7 @@
                                         <p></p>
                                     </li>
                                     <li>
-                                        <p><code>const userId:</code> Extraction de l'ID utilisateur de le
+                                        <p><code>const userId:</code> Extraction de l'ID utilisateur du
                                             <code>token</code>;</p>
                                     </li>
                                     <li>
@@ -901,10 +955,118 @@
                 </div>
                 <!--#### fin auth -->
 
+                <!--#### multer -->
+                <div id="multer" class="col border border-2 border-black shadow-lg my-5 rounded">
+                    <h2 class="h1 text-center mt-5" id="register1"><ins>register-img.js</ins></h2>
+
+                    <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-dependenceMulter-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-dependenceMulter" type="button" role="tab"
+                                aria-controls="pills-dependenceMulter" aria-selected="true">Dépendences</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-controllerMulter-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-controllerMulter" type="button" role="tab"
+                                aria-controls="pills-controllerMulter" aria-selected="false">middleware</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <!-- Dépendence -->
+                        <div class="tab-pane fade show active px-3" id="pills-dependenceMulter" role="tabpanel"
+                            aria-labelledby="pills-dependenceMulter-tab">
+                            <table
+                                class="table table-hover table-striped table-bordered border-success text-center fs-5">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="fs-5">Module</th>
+                                        <th scope="col" class="fs-5">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p>multer</p>
+                                        </td>
+                                        <td>
+                                            <p>multer est un package qui permet de gérer les fichiers entrants dans les
+                                                requêtes HTTP. Les utilisateurs pourront télécharger des images de la
+                                                sauce à vendre.</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--  -->
+                        <div class="tab-pane fade" id="pills-controllerMulter" role="tabpanel"
+                            aria-labelledby="pills-controllerMulter-tab">
+                            <h2 class="text-center">
+                                <!-- btn Modal -->
+                                <button type="button" class="btn btn-success mt-2 mb-5" data-bs-toggle="modal"
+                                    data-bs-target="#registerImg">Fichier js</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="registerImg" tabindex="-1"
+                                    aria-labelledby="registerImgLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title me-4 m-auto" id="registerImgLabel">
+                                                    register-img.js</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img src="img/multer.png" width="600" alt="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Ferme</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </h2>
+
+                            <ul class="lead fs-4">
+                                <!-- <div class="card mb-3 mx-2">
+                                    <img src="multer.png" class="card-img-top" alt="...">
+                                </div> -->
+                                <li>
+                                    <p>une constante <code>storage</code> passer à <code>multer</code> comme
+                                        configuration,
+                                        qui contient la logique nécessaire pour indiquer à <code>multer</code> où
+                                        enregistrer les fichiers entrants:</p>
+                                </li><code></code>
+                                <li>
+                                    <p>la fonction destination indique à <code>multer</code> d'enregistrer les fichiers
+                                        dans
+                                        le
+                                        dossier images;</p>
+                                </li>
+                                <li>
+                                    <p>la fonction <code>filename</code> indique à <code>multer</code> d'utiliser le nom
+                                        d'origine, de remplacer les espaces par des underscores et d'ajouter un
+                                        timestamp
+                                        <code>Date.now()</code> comme
+                                        nom de fichier.
+                                        Elle utilise ensuite la constante <code>MIME_TYPES</code> de type dictionnaire pour résoudre
+                                        l'extension de fichier appropriée;</p>
+                                </li>
+                                <li>
+                                    <p>nous exportons ensuite l'élément <code>multer</code> entièrement configuré, il
+                                        prend la
+                                        constante <code>storage</code> et gère uniquement les téléchargements de
+                                        fichiers image.</p>
+                                </li>
+                            </ul>
+                        </div><!-- fin -->
+                    </div>
+                </div>
+                <!--#### Fin multer -->
 
                 <!--#### sauce -->
                 <div class="col border border-2 border-black shadow-lg my-5 rounded">
-                    <h2 class="h1 text-center mt-5" id="analyse"><ins>sauce.js</ins></h2>
+                    <h2 class="h1 text-center mt-5" id="sauce1"><ins>sauce.js</ins></h2>
 
                     <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -948,13 +1110,22 @@
                                         <td>
                                             <p>mongoose</p>
                                         </td>
+                                        <td>
+                                            <p>Mongoose pour gérer notre base de données MongoDB, implémenter des
+                                                schémas de données stricts, qui permettent de rendre notre application
+                                                plus robuste.</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-center"></td>
+                                        <td colspan="2" class="text-center">Route</td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <p>express</p>
+                                        </td>
+                                        <td>
+                                            <p>Express est un framework reposant sur Node qui facilite la création et la
+                                                gestion des serveurs Node.</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -980,7 +1151,7 @@
                                             <p>../middleware/auth</p>
                                         </td>
                                         <td>
-                                            <p>Logique qui protégera les routes sélectionnées et vérifier que
+                                            <p>Logique qui protègera les routes sélectionnées et vérifier que
                                                 l'utilisateur est authentifié avant d'autoriser l'envoi de ses requêtes.
                                             </p>
                                         </td>
@@ -994,7 +1165,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-center"></td>
+                                        <td colspan="2" class="text-center">Controller</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -1207,7 +1378,8 @@
                                                 URL.</span>
                                         </p>
                                         <p class="ms-3">- likes et dislikes à 0 par default lors de la création.</p>
-                                        <p class="ms-3">- usersLiked et usersDisliked à First par default lors de la création.</p>
+                                        <p class="ms-3">- usersLiked et usersDisliked à First par default lors de la
+                                            création.</p>
                                     </li>
                                     <li>
                                         <p>L'opérateur spread ... est utilisé pour faire une copie de tous les éléments
@@ -1346,9 +1518,11 @@
                                         <img src="" class="card-img-top" alt="...">
                                     </div> -->
                                     <li>
-                                        <p>une constante sauceObject en opération ternaire qui regarde si <code>req.file</code> existe ou non.
+                                        <p>une constante sauceObject en opération ternaire qui regarde si
+                                            <code>req.file</code> existe ou non.
                                             <br><span class="ms-3">- true, on traite la nouvelle image;</span>
-                                            <br><span class="ms-3">- false, on traite simplement l'objet entrant.;</span>
+                                            <br><span class="ms-3">- false, on traite simplement l'objet
+                                                entrant.;</span>
                                         </p>
                                     </li>
                                     <li>
@@ -1415,8 +1589,7 @@
                             <!-- likeOrDislike -->
                             <div class="col">
                                 <h2 class="text-center mt-5">likeOrDislike</h2>
-                                <table
-                                    class="table table-hover table-striped table-bordered border-info text-center fs-5">
+                                <table class="table table-hover table-striped table-bordered border-info fs-5">
                                     <thead>
                                         <tr>
                                             <th scope="col" class="fs-5">Condition</th>
@@ -1427,11 +1600,11 @@
 
                                         <!-- 1ère condition -->
                                         <tr>
-                                            <td colspan="2">
-                                                <h1>if</h1>
+                                            <td>
+                                                <h1><code>if</code></h1>
                                                 <!-- btn Modal -->
-                                                <button type="button" class="btn btn-success mt-2"
-                                                    data-bs-toggle="modal" data-bs-target="#if">Code</button>
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                                    data-bs-target="#if">Code</button>
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="if" tabindex="-1" aria-labelledby="ifLabel"
                                                     aria-hidden="true">
@@ -1454,17 +1627,21 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p></p>
-                                            </td>
                                             <td>
                                                 <ul class="lead fs-4">
-                                                    <li></li><code></code>
-
                                                     <li>
-                                                        <p></p>
+                                                        <p>
+                                                            <code>$inc</code> de mongoDB incrémente un champ d'une
+                                                            valeur spécifiée, ici on incremente de 1 <code>likes</code>
+                                                            dans la BD.
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>
+                                                            <code>$push</code> ajoute une valeur spécifiée à un tableau,
+                                                            ici l'id de l'utisateur est ajouter au tableau
+                                                            <code>usersLiked</code>.
+                                                        </p>
                                                     </li>
 
                                                 </ul>
@@ -1473,11 +1650,11 @@
 
                                         <!-- 2em condition -->
                                         <tr>
-                                            <td colspan="2">
-                                                <h1>else if</h1>
+                                            <td>
+                                                <h1><code>else if</code></h1>
                                                 <!-- btn Modal -->
-                                                <button type="button" class="btn btn-success mt-2"
-                                                    data-bs-toggle="modal" data-bs-target="#elseif">Code</button>
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                                    data-bs-target="#elseif">Code</button>
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="elseif" tabindex="-1"
                                                     aria-labelledby="elseifLabel" aria-hidden="true">
@@ -1500,17 +1677,19 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p></p>
-                                            </td>
                                             <td>
                                                 <ul class="lead fs-4">
-                                                    <li></li><code></code>
-
                                                     <li>
-                                                        <p></p>
+                                                        <p>
+                                                            <code>$inc</code> on incremente de 1 <code>dislikes</code>
+                                                            dans la BD.
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>
+                                                            <code>$push</code> l'id de l'utisateur est ajouter au
+                                                            tableau <code>usersDisliked</code>.
+                                                        </p>
                                                     </li>
 
                                                 </ul>
@@ -1520,7 +1699,7 @@
                                         <!-- 3em condition -->
                                         <tr>
                                             <td colspan="2">
-                                                <h1>else</h1>
+                                                <h1><code>else</code></h1>
                                                 <!-- btn Modal -->
                                                 <button type="button" class="btn btn-success mt-2"
                                                     data-bs-toggle="modal" data-bs-target="#else">Code</button>
@@ -1549,14 +1728,43 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <p></p>
+                                                <p><code>if</code></p>
                                             </td>
                                             <td>
                                                 <ul class="lead fs-4">
-                                                    <li></li><code></code>
-
                                                     <li>
-                                                        <p></p>
+                                                        <p>
+                                                            <code>$inc</code> on decremente de 1 <code>dislikes</code>
+                                                            dans la BD.
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>
+                                                            <code>$push</code> l'id de l'utisateur est enlève au tableau
+                                                            <code>usersDisliked</code>.
+                                                        </p>
+                                                    </li>
+
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><code>else if</code></p>
+                                            </td>
+                                            <td>
+                                                <ul class="lead fs-4">
+                                                    <li>
+                                                        <p>
+                                                            <code>$inc</code> on decremente de 1 <code>dislikes</code>
+                                                            dans la BD.
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>
+                                                            <code>$push</code> l'id de l'utisateur est enlever du
+                                                            tableau <code>usersDisliked</code>.
+                                                        </p>
                                                     </li>
 
                                                 </ul>
@@ -1573,117 +1781,6 @@
                 </div>
                 <!--#### Fin sauce -->
 
-                <!--#### multer -->
-                <div id="multer" class="col border border-2 border-black shadow-lg my-5 rounded">
-                    <h2 class="h1 text-center mt-5" id="analyse"><ins>register-img.js</ins></h2>
-
-                    <ul class="nav nav-pills mb-3 d-flex justify-content-center my-5" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-dependenceMulter-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-dependenceMulter" type="button" role="tab"
-                                aria-controls="pills-dependenceMulter" aria-selected="true">Dépendences</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-controllerMulter-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-controllerMulter" type="button" role="tab"
-                                aria-controls="pills-controllerMulter" aria-selected="false">middleware</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                        <!-- Dépendence -->
-                        <div class="tab-pane fade show active px-3" id="pills-dependenceMulter" role="tabpanel"
-                            aria-labelledby="pills-dependenceMulter-tab">
-                            <table
-                                class="table table-hover table-striped table-bordered border-success text-center fs-5">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="fs-5">Module</th>
-                                        <th scope="col" class="fs-5">Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>multer</p>
-                                        </td>
-                                        <td>
-                                            <p>multer est un package qui permet de gérer les fichiers entrants dans les
-                                                requêtes HTTP. Les utilisateurs pourront télécharger des images de la
-                                                sauce à vendre.</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--  -->
-                        <div class="tab-pane fade" id="pills-controllerMulter" role="tabpanel"
-                            aria-labelledby="pills-controllerMulter-tab">
-                            <h2 class="text-center">
-                                <!-- btn Modal -->
-                                <button type="button" class="btn btn-success mt-2 mb-5" data-bs-toggle="modal"
-                                    data-bs-target="#registerImg">Fichier js</button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="registerImg" tabindex="-1"
-                                    aria-labelledby="registerImgLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title me-4 m-auto" id="registerImgLabel">
-                                                    register-img.js</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="img/multer.png" width="600" alt="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Ferme</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </h2>
-
-                            <ul class="lead fs-4">
-                                <!-- <div class="card mb-3 mx-2">
-                                    <img src="multer.png" class="card-img-top" alt="...">
-                                </div> -->
-                                <li>
-                                    <p>une constante <code>storage</code>, à passer à <code>multer</code> comme
-                                        configuration,
-                                        qui contient la logique nécessaire pour indiquer à <code>multer</code> où
-                                        enregistrer
-                                        les fichiers entrants:</p>
-                                </li><code></code>
-                                <li>
-                                    <p>la fonction destination indique à <code>multer</code> d'enregistrer les fichiers
-                                        dans
-                                        le
-                                        dossier images;</p>
-                                </li>
-                                <li>
-                                    <p>la fonction <code>filename</code> indique à <code>multer</code> d'utiliser le nom
-                                        d'origine, de remplacer les espaces par des underscores et d'ajouter un
-                                        timestamp
-                                        <code>Date.now()</code> comme
-                                        nom de fichier.
-                                        Elle utilise ensuite la constante dictionnaire de type MIME pour résoudre
-                                        l'extension de fichier appropriée ;</p>
-                                </li>
-                                <li>
-                                    <p>nous exportons ensuite l'élément <code>multer</code> entièrement configuré, il
-                                        prend
-                                        la
-                                        constante <code>storage</code> et gère uniquement les téléchargements de
-                                        fichiers image.</p>
-                                </li>
-                            </ul>
-                        </div><!-- fin -->
-
-                    </div>
-                </div>
-                <!--#### Fin multer -->
 
             </div>
         </div>
