@@ -1,11 +1,11 @@
-.title {
+/* .title {
     margin-left: 200px;
-}
+} */
 
 address {
     height: 100px;
     position: absolute;
-    right: 0px;
+    right: 100px;
     padding: 23px 51px 10px 60px;
     font-size: large;
     background: linear-gradient(96.58deg, #484FA0 25.67%, #04B2E7 100%);
