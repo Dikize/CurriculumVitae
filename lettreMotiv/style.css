@@ -1,0 +1,39 @@
+.title {
+    margin-left: 200px;
+}
+
+address {
+    height: 100px;
+    position: absolute;
+    right: -115px;
+    padding: 23px 51px 10px 60px;
+    font-size: large;
+    background: linear-gradient(96.58deg, #484FA0 25.67%, #04B2E7 100%);
+    border-radius: 0px 14px 15px 0px;
+    clip-path: polygon(7% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: matrix(-0.93, 0, -0.44, 1, 0, 0);
+}
+
+.address-item,
+.rectangle-item {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.rectangle-item p:nth-child(1) {
+    margin-right: 70px;
+}
+
+.rectangle-item p:nth-child(2) {
+    margin-left: 20px;
+}
+
+.rectangle {
+    position: absolute;
+    width: 509px;
+    height: 100px;
+    left: -55px;
+    background: linear-gradient(180deg, #484FA0 0%, #04B2E7 100%);
+    border-radius: 25px 20px;
+    clip-path: polygon(1% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transform: matrix(-0.93, 0, -0.44, 1, 0, 0);
+}
